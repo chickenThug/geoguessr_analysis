@@ -1,6 +1,8 @@
 import pandas as pd
 from duel_round import DuelRound
 from argparse import ArgumentParser
+
+
 def process_row(row):
     # Create a DuelRound instance from the row
     duel_round = DuelRound(
@@ -35,6 +37,8 @@ def process_row(row):
 def process_csv(input_file, output_file):
     # Read the input CSV into a DataFrame
     df = pd.read_csv(input_file)
+
+    df = df.tail(1)
     
     # Apply the process_row function to each row
     processed_df = df.apply(process_row, axis=1)

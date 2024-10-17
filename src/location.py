@@ -1,19 +1,23 @@
 from geopy.geocoders import Nominatim
 from geopy.exc import GeopyError
 import logging
-
+import time
 
 class Location:
     def __init__(self, latitude: str, longitude: str):
-        geolocator = Nominatim(user_agent="geoapiExercises")
+        time.sleep(1)
         try:
-            self.location = geolocator.reverse(f"{latitude},{longitude}", exactly_one=True).raw['address']
+            geolocator = Nominatim(user_agent="geoapiExercises", timeout=10)
+            self.location = geolocator.reverse(f"{latitude},{longitude}", exactly_one=True, language='en').raw['address']
         except GeopyError as e:
             logging.error("no location found", str(e))
-            self.location = None
+            self.localtion = None
+        except Exception as e:
+            logging.error("no location found", str(e))
+            self.localtion = None
 
     def get_country_name(self):
-        return self.location.get('country_name', None) if self.location else None
+        return self.location.get('country', None) if self.location else None
     
     def get_country_code(self):
         return self.location.get('country_code', None) if self.location else None
