@@ -1,0 +1,5 @@
+geographiclib==2.0
+geopy==2.4.1
+importlib-resources==6.4.5
+pycountry==24.6.1
+zipp==3.20.2
