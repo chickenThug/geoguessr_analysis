@@ -1,3 +1,4 @@
+colorama==0.4.6
 geographiclib==2.0
 geopy==2.4.1
 importlib-resources==6.4.5
@@ -7,5 +8,6 @@ pycountry==24.6.1
 python-dateutil==2.9.0.post0
 pytz==2024.2
 six==1.16.0
+tqdm==4.66.5
 tzdata==2024.2
 zipp==3.20.2
